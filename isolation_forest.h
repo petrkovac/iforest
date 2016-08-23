@@ -428,7 +428,7 @@ namespace iforest
 				return false;
 			}
 
-			if (m_trees.empty())
+			if (!m_root)
 			{
 				return false;
 			}
@@ -437,7 +437,7 @@ namespace iforest
 
 			for (auto i = 0; i < data.size(); i++)
 			{
-				scores[i] = pow(2, -GetPathLen(data[i]) / m_precalculatedC);
+				scores[i] = pow(2, -GetPathLen(data[i]) / CalculateC(m_sampleSize));
 			}
 
 			return true;
